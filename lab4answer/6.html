@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+     .slideshow-container{
+width: 100px;
+      display:flex;
+     }
+     .mySlides{
+      margin: 5px;
+     }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow-container">
+      <div class="mySlides"  >
+        <img src="images/france.jpg" style="width: 100px; height: 100%; " />
+      </div>
+      <div class="mySlides" >
+        <img   src="images/qatar.jpg" style="width: 100px ; height: 100%; "/>
+      </div>
+      <div class="mySlides"  >
+        <img  src="images/Emirates.jpg" style="width: 100px ; height: 100%; " />
+      </div>
+      <div class="mySlides"   >
+        <img src="images/travel.png" style="width: 100px ; height: 100%; " />
+      </div>
+    </div>
+
+
+
+    <script>
+      let x = document.getElementsByTagName('img')
+      for (let i = 0 ; i<x.length; i++){
+        x[i].addEventListener('mouseover', function (){
+          x[i].style.opacity = "0.3"
+          x[i].style.transition = "0.4s"
+
+        })
+        x[i].addEventListener('mouseleave', function (){
+          x[i].style.opacity = "1"
+          x[i].style.transition = "0.4s"
+        })
+      }
+      
+    
+    </script>
+  </body>
+</html>

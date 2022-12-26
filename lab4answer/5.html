@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .mySlides {
+        display: none;
+        height: 500px;
+      }
+
+      img {
+        vertical-align: middle;
+      }
+
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 500px;
+        height: 100vh;
+        position: relative;
+        margin: auto;
+      }
+
+      /* Next & previous buttons */
+      .prev,
+      .next,
+      .start,
+      .stop {
+        cursor: pointer;
+        top: 50%;
+        width: auto;
+        padding: 7px;
+        margin-top: -22px;
+        color: rgb(252, 0, 0);
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      .main-button {
+        margin: 30px;
+        left: 43%;
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .start:hover,
+      .stop:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .active:hover {
+        background-color: #717171;
+      }
+
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev,
+        .next,
+        .start,
+        .stop {
+          font-size: 11px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="slideshow-container">
+      <div class="main-button">
+        <button class="start" id="start" onclick="startSlides(1) ">
+          start
+        </button>
+        <button class="stop" id="stop" onclick="stopSlides()">Stop</button>
+        <button class="prev" onclick="plusSlides(-1)">previous</button>
+        <button class="next" onclick="plusSlides(1)">next</button>
+      </div>
+
+      <div class="mySlides">
+        <img src="images/france.jpg" style="width: 100%; height: 100%" />
+      </div>
+
+      <div class="mySlides">
+        <img src="images/qatar.jpg" style="width: 100%" />
+      </div>
+
+      <div class="mySlides">
+        <img src="images/Emirates.jpg" style="width: 100%" />
+      </div>
+
+      <div class="mySlides">
+        <img src="images/travel.png" style="width: 100%" />
+      </div>
+    </div>
+    <br />
+    <script>
+      let slideIndex = 1;
+      let myInterval;
+      //       slides.addEventListener('mouseover', (event) => {
+      // myInterval
+      //         });
+
+      showSlides(slideIndex);
+      function startSlides(n) {
+        myInterval = setInterval(function () {
+          showSlides(slideIndex);
+          slideIndex = slideIndex + 1;
+        }, 1000);
+      }
+
+      function stopSlides(n) {
+        clearInterval(myInterval);
+      }
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+      }
+    </script>
+  </body>
+</html>
